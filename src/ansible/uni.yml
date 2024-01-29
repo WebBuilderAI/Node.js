@@ -1,0 +1,3 @@
+- hosts: localhost #, fedora, ubuntu
+  roles:
+  - Node.js

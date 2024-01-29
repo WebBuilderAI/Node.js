@@ -1,0 +1,13 @@
+- name: is in Distrobox?
+  shell: which distrobox
+  failed_when: false
+  changed_when: false
+  register: which_distrobox
+
+- name: Set in_Distrobox
+  ansible.builtin.set_fact:
+    in_Distrobox: "{{ true if which_distrobox.rc == 1 else false }}"
+
+- debug:
+    msg: "In Distrobox? {{ in_Distrobox }}"
+  when: debug
